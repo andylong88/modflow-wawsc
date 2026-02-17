@@ -1,0 +1,33 @@
+# MODFLOW-NWT UPW Package
+        50  -1.000000e+030         0         0
+  1  3  3  3  3  3  3  3  3  3  0  0  0
+  0  0  0  0  0  0  0  0  0  0  0  0  0
+  1.000000e+000  1.000000e+000  1.000000e+000  1.000000e+000  1.000000e+000  1.000000e+000  1.000000e+000  1.000000e+000  1.000000e+000  1.000000e+000  1.000000e+000  1.000000e+000  1.000000e+000
+ 1 1 1 1 1 1 1 1 1 1 1 1 1
+ 0 0 0 0 0 0 0 0 0 0 0 0 0
+        73   1.00000(7E14.6)                    -1     HYDRAULIC CONDUCTIVITY Layer   1
+        70   1.00000(7E14.6)                    -1     VERTICAL ANISOTROPY Layer   1
+        74   1.00000(7E14.6)                    -1     HYDRAULIC CONDUCTIVITY Layer   2
+        70   1.00000(7E14.6)                    -1     VERTICAL ANISOTROPY Layer   2
+        75   1.00000(7E14.6)                    -1     HYDRAULIC CONDUCTIVITY Layer   3
+        70   1.00000(7E14.6)                    -1     VERTICAL ANISOTROPY Layer   3
+        76   1.00000(7E14.6)                    -1     HYDRAULIC CONDUCTIVITY Layer   4
+        70   1.00000(7E14.6)                    -1     VERTICAL ANISOTROPY Layer   4
+        77   1.00000(7E14.6)                    -1     HYDRAULIC CONDUCTIVITY Layer   5
+        70   1.00000(7E14.6)                    -1     VERTICAL ANISOTROPY Layer   5
+        78   1.00000(7E14.6)                    -1     HYDRAULIC CONDUCTIVITY Layer   6
+        70   1.00000(7E14.6)                    -1     VERTICAL ANISOTROPY Layer   6
+        79   1.00000(7E14.6)                    -1     HYDRAULIC CONDUCTIVITY Layer   7
+        70   1.00000(7E14.6)                    -1     VERTICAL ANISOTROPY Layer   7
+        80   1.00000(7E14.6)                    -1     HYDRAULIC CONDUCTIVITY Layer   8
+        70   1.00000(7E14.6)                    -1     VERTICAL ANISOTROPY Layer   8
+        81   1.00000(7E14.6)                    -1     HYDRAULIC CONDUCTIVITY Layer   9
+        70   1.00000(7E14.6)                    -1     VERTICAL ANISOTROPY Layer   9
+        82   1.00000(7E14.6)                    -1     HYDRAULIC CONDUCTIVITY Layer  10
+        70   1.00000(7E14.6)                    -1     VERTICAL ANISOTROPY Layer  10
+        83   1.00000(7E14.6)                    -1     HYDRAULIC CONDUCTIVITY Layer  11
+        70   1.00000(7E14.6)                    -1     VERTICAL ANISOTROPY Layer  11
+        84   1.00000(7E14.6)                    -1     HYDRAULIC CONDUCTIVITY Layer  12
+        70   1.00000(7E14.6)                    -1     VERTICAL ANISOTROPY Layer  12
+        85   1.00000(7E14.6)                    -1     HYDRAULIC CONDUCTIVITY Layer  13
+        70   1.00000(7E14.6)                    -1     VERTICAL ANISOTROPY Layer  13
