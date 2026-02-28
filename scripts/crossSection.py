@@ -30,7 +30,7 @@ row_max = 415 # zero based
 
 out_png = "../script_output/cross_section.png"
 
-# Cross-section end points in (row, col), 0-based indices
+# Cross-section start and end points in (row, col), 0-based indices
 if x_sect == "row":
     rc_start = (plot_row, 0)
     rc_end   = (plot_row, col_max)
