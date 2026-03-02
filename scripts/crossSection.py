@@ -12,31 +12,38 @@ from matplotlib.patches import PathPatch
 
 pkl_file = r"../imported_models/SES_example/model.pkl"
 head_file = r"../imported_models/SES_example/output/output.SES_ss/SES_ss.hds"
-
-target_layer_num = 6  # layer number (1-based)
-# Plot cross-section along row or column
-x_sect = "row" # row or col
-plot_row = 170 # plot along row number
-plot_col = 223 # plot along column number
-# Color mode for the cross-section:
-#   "layer" -> color by layer index
-#   "hk"    -> color by horizontal hydraulic conductivity
-color_mode = "layer"
-zmin_plot = -1800.0
-zmax_plot = 1400.0
+zmin_plot = -1800.0 # minumum altitude of cross section
+zmax_plot = 1400.0 # maximum altitude of cross section
 show_grid = True  # draw cell boundaries on cross-section?
-col_max = 432 # zero based
-row_max = 415 # zero based
+col_max = 432 # maximum column number, zero based
+row_max = 415 # maxumun row number, zero based
 
-out_png = "../script_output/cross_section.png"
+# Cross-section settings:
+color_mode = "layer" # (layer or hk) Color the cross section by layer number or by horizontal hydraulic conductivity
+target_layer_num = 6  # layer number for potentiometric surface plotting (1-based)
+# Plot cross-section along row or column
+x_sect = "row" # (row, col, or diag) Select plotting along a row, column, or diagonal for cross section.
+    # NOTE-- A potentiometric surface line will not be plotted when x_sect == "diag" 
+    #   because this does not plot correctly. 
+if x_sect == "diag":
+    print ("NOTE-- Potentiomtric surface is NOT plotted for x_sect == diag")
+plot_row = 170 # set for x_sect == "row"
+plot_col = 223 # set for x_sect == "col"
 
-# Cross-section start and end points in (row, col), 0-based indices
-if x_sect == "row":
+# Set cross-section start and end points for x_sect == "diag", 0-based indices
+if x_sect == "diag": 
+    rc_start = (318, 23) # enter (row, col) here
+    rc_end = (94, 289) # enter (row, col) here
+elif x_sect == "row":
     rc_start = (plot_row, 0)
     rc_end   = (plot_row, col_max)
 elif x_sect == "col":
     rc_start = (row_max, plot_col)
     rc_end = (0, plot_col)
+else:
+    print ("ERROR: x_sect must be set to row, col, or diag")
+
+out_png = "../script_output/cross_section.png"
 
 # ============================================================
 # LOAD MODEL, HEADS, AND ACTIVE CELLS
@@ -220,7 +227,7 @@ if hdry is not None:
 
 h9 = head_clean[k_target, :, :]
 
-# Heads along the path (one per (row, col))
+# Potentiometric surface-- Heads along the path (one per (row, col))
 h_line = np.array([h9[r, c] for r, c in rc_path], dtype=float)
 valid = np.isfinite(h_line)
 dist_clean = dist[valid]
@@ -284,13 +291,14 @@ else:
     xsect.plot_grid(color="k", linewidth=0.0, ax=ax_xs)
 
 # Potentiometric surface along the path (distance vs head)
-ax_xs.plot(
-    dist_clean,
-    h_line_clean,
-    "r-",
-    linewidth=2.0,
-    label=f"Potentiometric surface (Layer {target_layer_num})",
-)
+if x_sect != "diag": # not equal to "diag"
+    ax_xs.plot(
+        dist_clean,
+        h_line_clean,
+        "k-", # line color and style
+        linewidth=1.5,
+        label=f"Potentiometric surface (Layer {target_layer_num})",
+    )
 
 ax_xs.set_ylim(zmin_plot, zmax_plot)
 ax_xs.set_xlabel("Distance along cross-section (model units)")
@@ -299,14 +307,6 @@ ax_xs.set_title(
     f"Cross-section from (row {r0}, col {c0}) to (row {r1}, col {c1})"
 )
 ax_xs.legend(loc="best")
-
-# ------------------------------------------------------------
-# PLAN VIEW: GRID + SECTION PATH
-# ------------------------------------------------------------
-
-# ------------------------------------------------------------
-# PLAN VIEW: GRID + SECTION PATH
-# ------------------------------------------------------------
 
 # ------------------------------------------------------------
 # PLAN VIEW: GRID + SECTION PATH
