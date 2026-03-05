@@ -25,10 +25,10 @@ target_layer_num = 6  # layer number for potentiometric surface plotting (1-base
 x_sect = "row" # (row, col, or diag) Select plotting along a row, column, or diagonal for cross section.
     # NOTE-- A potentiometric surface line will not be plotted when x_sect == "diag" 
     #   because this does not plot correctly. 
-if x_sect == "diag":
-    print ("NOTE-- Potentiomtric surface is NOT plotted for x_sect == diag")
 plot_row = 170 # set for x_sect == "row"
 plot_col = 223 # set for x_sect == "col"
+if x_sect == "diag":
+    print ("NOTE-- Potentiomtric surface is NOT plotted for x_sect == diag")
 
 # Set cross-section start and end points for x_sect == "diag", 0-based indices
 if x_sect == "diag": 
